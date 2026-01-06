@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta >
+    <meta>
+    <title> API Html</title>
+</head>
+<body>
+    <h1> Learning APIs  </h1>
+<h1> HTML Geolocation</h1>
+<p> Click the buttton to get your location </p>
+<button onclick="getlocation()"> Get Location</button>
+<p id="getloc"></p>
+<script>
+    const x = document.getElementById("getloc");
+    function getlocation(){
+        if (navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(success , error);
+            
+        }
+        else{
+            x.innerHTML= "geolocation is not supported in your browser";
+        }
+    }
+    function success (position){
+        x.innerHTML = "latitude =" +position.coords.latitude +
+        "<br> longitude =" +position.coords.longitude ;
+    }
+    function error (){
+        alert(" Sorry ,  no position available")
+    }
+    
+    
+</script>
+</body>
+</html>
