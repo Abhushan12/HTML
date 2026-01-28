@@ -1,13 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta >
-    <meta>
+  
     <title> API Html</title>
+ <script>
+function clickCounter() {
+  const x = document.getElementById("count");
+  if (typeof(Storage) !== "undefined") {
+    if (localStorage.clickcount) {
+      localStorage.clickcount = Number(localStorage.clickcount)+1;
+    } else {
+      localStorage.clickcount = 1;
+    }
+    x.innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s)!";
+  } else {
+    x.innerHTML = "Sorry, no Web storage support!";
+  }
+}
+</script>
+<script>
+function clickCountsession() {
+  const x = document.getElementById("session");
+  if (typeof(Storage) !== "undefined") {
+    if (sessionStorage.clickCount) {
+      sessionStorage.clickCount = Number(sessionStorage.clickCount)+1;
+    } else {
+      sessionStorage.clickCount = 1;
+    }
+    x.innerHTML = "You have clicked the button " + sessionStorage.clickCount + " time(s) in this session!";
+  } else {
+    x.innerHTML = "Sorry, no Web storage support!";
+  }
+}
+</script>
 </head>
 <body>
     <h1> Learning APIs  </h1>
-<h1> HTML Geolocation</h1>
+<!-- <h1> HTML Geolocation</h1>
 <p> Click the buttton to get your location </p>
 <button onclick="getlocation()"> Get Location</button>
 <p id="getloc"></p>
@@ -28,9 +57,43 @@
     }
     function error (){
         alert(" Sorry ,  no position available")
-    }
-    
-    
-</script>
+    }  
+</script> -->
+<div id="result"></div>
+<div id="output"></div>
+
+<script>
+const y = document.getElementById("result");
+const x = document.getElementById("output");
+
+if (typeof(Storage) !== "undefined") {
+
+  localStorage.setItem("lastname", "aniket");
+  localStorage.setItem("bgcolor", "yellow");
+  localStorage.setItem("firstname", "shahi");
+  localStorage.setItem("color", "green");
+
+  y.innerHTML = localStorage.getItem("lastname");
+  y.style.backgroundColor = localStorage.getItem("bgcolor");
+
+  x.innerHTML = localStorage.getItem("firstname");
+  x.style.backgroundColor = localStorage.getItem("color");
+
+} else {
+  y.innerHTML = "Sorry, no Web storage support!";
+}
+</script><br>
+<button onclick="clickCounter()" type="button">Click me!</button>
+<p id="count"></p>
+<p>Click the button to see the counter increase.</p>
+<p>Close the browser tab (or window), and try again, and the counter will continue to count.</p>
+<br>
+<h1>sessionStorage</h1>
+
+<button onclick="clickCountsession()" type="button">Click me!</button>
+<p id="session"></p>
+<p>Click the button to see the counter increase.</p>
+<p>Close the browser tab (or window), and try again, and the counter is reset.</p>
+
 </body>
 </html>
