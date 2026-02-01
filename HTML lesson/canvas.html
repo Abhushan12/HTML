@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <title>Canvas</title>
@@ -9,7 +9,8 @@
       id="mycanvas"
       width="100px"
       height="100px"
-      style="border: 1px solid #eb4034">
+      style="border: 1px solid #eb4034"
+    >
     </canvas>
 
     <canvas
@@ -24,7 +25,7 @@
       ctx.beginPath();
       ctx.arc(50, 50, 40, 0, 2 * Math.PI);
       ctx.stroke();
- 
+
       var c = document.getElementById("mycanvas");
       var ctx = c.getContext("2d");
       ctx.moveTo(0, 0);
@@ -34,7 +35,7 @@
       var c = document.getElementById("mycanvas");
       var ctx = c.getContext("2d");
       ctx.moveTo(100, 0);
-      ctx.lineTo(0,100);
+      ctx.lineTo(0, 100);
       ctx.stroke();
     </script>
   </body>
